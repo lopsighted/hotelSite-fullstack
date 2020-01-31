@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>CS532_Lil_Tech_X</title>
+    <meta name="description"
+        content="CS532 Software Engineering Project. Front-end implementaion of Ophelia's Oasis Plan.">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic">
+    <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/fonts/ionicons.min.css">
+    <link rel="stylesheet" href="assets/fonts/fontawesome5-overrides.min.css">
+    <link rel="stylesheet" href="assets/css/Article-List.css">
+    <link rel="stylesheet" href="assets/css/Calendar-JavaScript-Can-only-see-in-browser-preview-mode-1.css">
+    <link rel="stylesheet" href="assets/css/Calendar-JavaScript-Can-only-see-in-browser-preview-mode-10.css">
+    <link rel="stylesheet" href="assets/css/Calendar-JavaScript-Can-only-see-in-browser-preview-mode-2.css">
+    <link rel="stylesheet" href="assets/css/Calendar-JavaScript-Can-only-see-in-browser-preview-mode-3.css">
+    <link rel="stylesheet" href="assets/css/Calendar-JavaScript-Can-only-see-in-browser-preview-mode-4.css">
+    <link rel="stylesheet" href="assets/css/Calendar-JavaScript-Can-only-see-in-browser-preview-mode-5.css">
+    <link rel="stylesheet" href="assets/css/Calendar-JavaScript-Can-only-see-in-browser-preview-mode-6.css">
+    <link rel="stylesheet" href="assets/css/Bootstrap-Payment-Form.css">
+    <link rel="stylesheet" href="assets/css/Calendar-JavaScript-Can-only-see-in-browser-preview-mode-7.css">
+    <link rel="stylesheet" href="assets/css/Calendar-JavaScript-Can-only-see-in-browser-preview-mode-8.css">
+    <link rel="stylesheet" href="assets/css/Calendar-JavaScript-Can-only-see-in-browser-preview-mode-9.css">
+    <link rel="stylesheet" href="assets/css/Calendar-JavaScript-Can-only-see-in-browser-preview-mode.css">
+    <link rel="stylesheet" href="assets/css/Features-Blue.css">
+    <link rel="stylesheet" href="assets/css/Highlight-Phone.css">
+    <link rel="stylesheet" href="assets/css/Login-Form-Clean.css">
+    <link rel="stylesheet" href="assets/css/Navigation-Clean.css">
+    <link rel="stylesheet" href="assets/css/Navigation-with-Button.css">
+    <link rel="stylesheet" href="assets/css/Registration-Form-with-Photo.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-light navbar-expand-md navigation-clean">
+        <div class="container"><a class="navbar-brand" href="home.html">Ophelia's Oasis<br> <br> <br> <br> <br> <br>
+                <br> <br> <br> <br> <br><br></a><button data-toggle="collapse" class="navbar-toggler"
+                data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span
+                    class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navcol-1">
+                <ul class="nav navbar-nav ml-auto">
+                    <li class="nav-item" role="presentation"></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="register.html">Register</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="login.html">Login</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="booking.html">Booking</a></li>
+                    <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" data-toggle="dropdown"
+                            aria-expanded="false" href="#">About&nbsp;</a>
+                        <div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation"
+                                href="contact.html">Contact</a><a class="dropdown-item" role="presentation"
+                                href="staffpage.html">Staff</a></div>
+                    </li>
+                    <li class="nav-item" role="presentation"></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <section>
+        <form id="userForm">
+            <input class="form-control" type="date" name="beginDate">
+            <input class="form-control" type="date" name="endDate">
+            <div class="form-group"><input class="form-control" type="email" name="email" placeholder="Email"></div>
+            <button class="btn btn-primary" type="submit">book</button>
+        </form>
+        <!-- <div>
+            <div>
+                <div id="calendar" class="calendar col-md-12" data-provide="calendar">
+                    <div>
+
+                        <script class="publish" type="text/javascript">
+
+
+                            function editEvent(event) {
+                                alert( '<? php echo "\"Hello\""; ?>');
+                                $('#event-modal input[name="event-index"]').val(event ? event.id : '');
+                                $('#event-modal input[name="event-name"]').val(event ? event.name : '');
+                                $('#event-modal input[name="event-location"]').val(event ? event.location : '');
+                                $('#event-modal input[name="event-start-date"]').datepicker('update', event ? event.startDate : '');
+                                $('#event-modal input[name="event-end-date"]').datepicker('update', event ? event.endDate : '');
+                                $('#event-modal').modal();
+                            }
+
+                            function deleteEvent(event) {
+                                var dataSource = $('#calendar').data('calendar').getDataSource();
+
+                                for (var i in dataSource) {
+                                    if (dataSource[i].id == event.id) {
+                                        dataSource.splice(i, 1);
+                                        break;
+                                    }
+                                }
+
+                                $('#calendar').data('calendar').setDataSource(dataSource);
+
+                            }
+
+                            function saveEvent() {
+                                var event = {
+                                    id: $('#event-modal input[name="event-index"]').val(),
+                                    name: $('#event-modal input[name="event-name"]').val(),
+                                    location: $('#event-modal input[name="event-location"]').val(),
+                                    startDate: $('#event-modal input[name="event-start-date"]').datepicker('getDate'),
+                                    endDate: $('#event-modal input[name="event-end-date"]').datepicker('getDate')
+                                }
+
+                                var dataSource = $('#calendar').data('calendar').getDataSource();
+
+                                if (event.id) {
+                                    for (var i in dataSource) {
+                                        if (dataSource[i].id == event.id) {
+                                            dataSource[i].name = event.name;
+                                            dataSource[i].location = event.location;
+                                            dataSource[i].startDate = event.startDate;
+                                            dataSource[i].endDate = event.endDate;
+                                        }
+                                    }
+                                }
+                                else {
+                                    var newId = 0;
+                                    for (var i in dataSource) {
+                                        if (dataSource[i].id > newId) {
+                                            newId = dataSource[i].id;
+                                        }
+                                    }
+
+                                    newId++;
+                                    event.id = newId;
+
+                                    dataSource.push(event);
+                                }
+
+                                $('#calendar').data('calendar').setDataSource(dataSource);
+                                $('#event-modal').modal('hide');
+                            }
+
+                            $(function () {
+                                var currentYear = new Date().getFullYear();
+
+                                $('#calendar').calendar({
+                                    enableContextMenu: true,
+                                    enableRangeSelection: true,
+                                    displayWeekNumber: true,
+                                    style: 'background',
+                                    alwaysHalfDay: true,
+
+
+                                    contextMenuItems: [
+                                        {
+                                            text: 'Update',
+                                            click: editEvent
+                                        },
+                                        {
+                                            text: 'Delete',
+                                            click: deleteEvent
+                                        }
+                                    ],
+                                    selectRange: function (e) {
+                                        editEvent({ startDate: e.startDate, endDate: e.endDate });
+                                    },
+                                    mouseOnDay: function (e) {
+                                        if (e.events.length > 0) {
+                                            var content = '';
+
+                                            for (var i in e.events) {
+                                                content += '<div class="event-tooltip-content">'
+                                                    + '<div class="event-name" style="color:' + e.events[i].color + '">' + e.events[i].name + '</div>'
+                                                    + '<div class="event-location">' + e.events[i].location + '</div>'
+                                                    + '</div>';
+                                            }
+
+                                            $(e.element).popover({
+                                                trigger: 'manual',
+                                                container: 'body',
+                                                html: true,
+                                                content: content
+                                            });
+
+                                            $(e.element).popover('show');
+                                        }
+                                    },
+                                    mouseOutDay: function (e) {
+                                        if (e.events.length > 0) {
+                                            $(e.element).popover('hide');
+                                        }
+                                    },
+                                    dayContextMenu: function (e) {
+                                        $(e.element).popover('hide');
+                                    },
+                                    dataSource: [
+                                        {
+                                            id: 0,
+                                            name: 'Google I/O',
+                                            location: 'San Francisco, CA',
+                                            startDate: new Date(currentYear, 4, 28),
+                                            endDate: new Date(currentYear, 4, 29)
+                                        },
+                                        {
+                                            id: 1,
+                                            name: 'Microsoft Convergence',
+                                            location: 'New Orleans, LA',
+                                            startDate: new Date(currentYear, 2, 16),
+                                            endDate: new Date(currentYear, 2, 19)
+                                        },
+                                        {
+                                            id: 2,
+                                            name: 'Microsoft Build Developer Conference',
+                                            location: 'San Francisco, CA',
+                                            startDate: new Date(currentYear, 3, 29),
+                                            endDate: new Date(currentYear, 4, 1)
+                                        },
+                                        {
+                                            id: 3,
+                                            name: 'Apple Special Event',
+                                            location: 'San Francisco, CA',
+                                            startDate: new Date(currentYear, 8, 1),
+                                            endDate: new Date(currentYear, 8, 1)
+                                        },
+                                        {
+                                            id: 4,
+                                            name: 'Apple Keynote',
+                                            location: 'San Francisco, CA',
+                                            startDate: new Date(currentYear, 8, 9),
+                                            endDate: new Date(currentYear, 8, 9)
+                                        },
+                                        {
+                                            id: 5,
+                                            name: 'Chrome Developer Summit',
+                                            location: 'Mountain View, CA',
+                                            startDate: new Date(currentYear, 10, 17),
+                                            endDate: new Date(currentYear, 10, 18)
+                                        },
+                                        {
+                                            id: 6,
+                                            name: 'F8 2015',
+                                            location: 'San Francisco, CA',
+                                            startDate: new Date(currentYear, 2, 25),
+                                            endDate: new Date(currentYear, 2, 26)
+                                        },
+                                        {
+                                            id: 7,
+                                            name: 'Yahoo Mobile Developer Conference',
+                                            location: 'New York',
+                                            startDate: new Date(currentYear, 7, 25),
+                                            endDate: new Date(currentYear, 7, 26)
+                                        },
+                                        {
+                                            id: 8,
+                                            name: 'Android Developer Conference',
+                                            location: 'Santa Clara, CA',
+                                            startDate: new Date(currentYear, 11, 1),
+                                            endDate: new Date(currentYear, 11, 4)
+                                        },
+                                        {
+                                            id: 9,
+                                            name: 'LA Tech Summit',
+                                            location: 'Los Angeles, CA',
+                                            startDate: new Date(currentYear, 10, 17),
+                                            endDate: new Date(currentYear, 10, 17)
+                                        }
+                                    ]
+                                });
+
+                                $('#save-event').click(function () {
+                                    saveEvent();
+                                });
+                            });
+                        </script>
+                    </div>
+                </div>
+                <div id="footer">
+                    <div class="site-content">
+
+                    </div>
+                </div>
+            </div>
+        </div> -->
+    </section>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/booking.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/smart-forms.min.js"></script>
+    <script src="assets/js/chart.min.js"></script>
+    <script src="assets/js/bs-charts.js"></script>
+    <script src="assets/js/Calendar-JavaScript-Can-only-see-in-browser-preview-mode-1.js"></script>
+    <script src="assets/js/Calendar-JavaScript-Can-only-see-in-browser-preview-mode-10.js"></script>
+    <script src="assets/js/Calendar-JavaScript-Can-only-see-in-browser-preview-mode-11.js"></script>
+    <script src="assets/js/Calendar-JavaScript-Can-only-see-in-browser-preview-mode-12.js"></script>
+    <script src="assets/js/Calendar-JavaScript-Can-only-see-in-browser-preview-mode-13.js"></script>
+    <script src="assets/js/Calendar-JavaScript-Can-only-see-in-browser-preview-mode-14.js"></script>
+    <script src="assets/js/Calendar-JavaScript-Can-only-see-in-browser-preview-mode-2.js"></script>
+    <script src="assets/js/Calendar-JavaScript-Can-only-see-in-browser-preview-mode-3.js"></script>
+    <script src="assets/js/Calendar-JavaScript-Can-only-see-in-browser-preview-mode-4.js"></script>
+    <script src="assets/js/Calendar-JavaScript-Can-only-see-in-browser-preview-mode-5.js"></script>
+    <script src="assets/js/Calendar-JavaScript-Can-only-see-in-browser-preview-mode-6.js"></script>
+    <script src="assets/js/Calendar-JavaScript-Can-only-see-in-browser-preview-mode-7.js"></script>
+    <script src="assets/js/Calendar-JavaScript-Can-only-see-in-browser-preview-mode-8.js"></script>
+    <script src="assets/js/Calendar-JavaScript-Can-only-see-in-browser-preview-mode-9.js"></script>
+    <script src="assets/js/Calendar-JavaScript-Can-only-see-in-browser-preview-mode.js"></script>
+    <script src="assets/js/SubmitPay.js"></script>
+</body>
+
+</html>

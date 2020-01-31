@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var HttpClient = function () {
+            this.get = function (aUrl, aCallback) {
+                var anHttpRequest = new XMLHttpRequest();
+                anHttpRequest.onreadystatechange = function () {
+                    if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
+                        aCallback(anHttpRequest.responseText);
+                }
+
+                anHttpRequest.open("GET", aUrl, true);
+                anHttpRequest.send(null);
+            }
+        }
+        var client = new HttpClient();
+        client.get('http://localhost:5000/api/rooms', function (response) {
+            json = JSON.parse(response);
+            console.log(json.length);
+            var req = new XMLHttpRequest();
+            req.open("DELETE", 'http://localhost:5000/api/rooms/'+json[json.length - 1]._id, true);
+            req.onreadystatechange = function() {
+                if (req.readyState == 4 && req.status == 200)
+                    console.log((JSON.parse(req.responseText)));
+            };
+
+            req.send(null);
+        });
+    </script>
+</body>
+
+</html>

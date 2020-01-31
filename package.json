@@ -1,0 +1,32 @@
+{
+  "name": "oasis-proj",
+  "version": "1.0.0",
+  "description": "",
+  "main": "Server/exp_server.js",
+  "scripts": {
+    "deploy": "gh-pages -d site",
+    "start": "node exp_server",
+    "dev": "nodemon exp_server "
+  },
+  "homepage": "https://liltechx532.github.io/oasis-proj/",
+  "keywords": [],
+  "author": "Manuel Loera",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "gh-pages": "^2.1.1",
+    "moment": "^2.24.0",
+    "mongoose": "^5.7.7",
+    "npm": "^6.12.1",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
+    "uuid": "^3.3.3",
+    "xmlhttprequest": "^1.8.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.4"
+  }
+}
