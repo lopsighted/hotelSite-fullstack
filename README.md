@@ -1,5 +1,5 @@
 # hotelSite-fullstack
-A project for CS532-Software Engineering that was an attempt to make a full stack website for a fictional hotel. 
+A project for CS532-Software Engineering that was an attempt to make a full stack website for a fictional hotel, Ophelias Oasis for G.Leonard at SDSU.
 
 # *Keynotes*:
 -**Project Manager**
